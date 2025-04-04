@@ -9,26 +9,12 @@
         name: git
         state: present
 
-    - name: Remove old /var/www/html (if needed)
-      file:
-        path: /var/www/html
-        state: absent
-      when: false  # Set to `true` if you want to force-clear before cloning
-
     - name: Clone Git repo into /var/www/html
       git:
         repo: https://github.com/CeeyIT-Solutions/food3.git
         dest: /var/www/html
         force: yes  # Ensures latest changes are pulled
         update: yes  # Updates if repo exists
-
-    - name: Set correct permissions for Apache
-      file:
-        path: /var/www/html
-        owner: apache
-        group: apache
-        recurse: yes  # Applies to all files inside
-        mode: '0755'
 
 ...
       
