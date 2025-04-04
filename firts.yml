@@ -1,0 +1,11 @@
+---
+- name: Update n3 servers
+  hosts: n3
+  remote_user: root
+
+  tasks:
+    - name: Create a directory
+      file: 
+        path: /home/ec2-user/premier_dir 
+        state: directory
+...
