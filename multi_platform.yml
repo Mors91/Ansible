@@ -34,5 +34,5 @@
         state: started
         enabled: yes
       when : ansible_distribution == "Ubuntu"
-  ansible_distribution: Ubuntu
+  
 ...
