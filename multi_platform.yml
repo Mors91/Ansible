@@ -1,0 +1,38 @@
+---
+- name: Install HTTP servers
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install HTTPD
+      yum: 
+        name: httpd 
+        state: present
+      when : ansible_distribution == "Amazon Linux" or ansible_distribution == "CentOS" or ansible_distribution == "Red Hat Enterprise Linux Server"
+
+    - name: start httpd service
+      service: 
+        name: httpd 
+        state: started
+        enabled: yes
+      when : ansible_distribution == "Amazon Linux" or ansible_distribution == "CentOS" or ansible_distribution == "Red Hat Enterprise Linux Server"
+
+- name: Install HTTP server
+  hosts: n1
+  become: yes
+
+  tasks:
+    - name: Install Apache
+      apt: 
+        name: apache2
+        state: present
+      when : ansible_distribution == "Ubuntu"
+
+    - name: start apache2
+      service: 
+        name: apache2
+        state: started
+        enabled: yes
+      when : ansible_distribution == "Ubuntu"
+  ansible_distribution: Ubuntu
+...
