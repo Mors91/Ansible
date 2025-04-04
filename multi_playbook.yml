@@ -1,0 +1,46 @@
+---
+- name: Update n3 servers
+  hosts: n3
+  remote_user: root
+
+  tasks:
+    - name: Create a directory
+      file: 
+        path: /home/ec2-user/premier_dir 
+        state: directory
+
+    - name: Create a directory
+      file: 
+        path: /home/ec2-user/mark_dir 
+        state: directory
+
+- name: Update n2 servers
+  hosts: n2
+  remote_user: root
+
+  tasks:
+    - name: Create a directory
+      file: 
+        path: /home/ec2-user/mark_dir
+        state: directory
+
+    - name: Create a directory
+      file: 
+        path: /home/ec2-user/mark_dir2
+        state: directory
+
+- name: Update n1 servers
+  hosts: n1
+  remote_user: root
+
+  tasks:
+    - name: Create a directory
+      file: 
+        path: /home/ec2-user/premier_dir 
+        state: directory
+      
+    - name: Create another directory
+      file: 
+        path: /home/ec2-user/second_dir 
+        state: directory
+...
