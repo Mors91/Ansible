@@ -1,31 +1,18 @@
 ---
-- name: Deploy website from Git
-  hosts: n4
+- name: Deploy HTTP servers
+  hosts: n2
   become: yes
 
   tasks:
-    - name: Install Git
-      yum:
-        name: git
+    - name: Install git
+      yum: 
+        name: git 
         state: present
 
-    - name: Configure Git to trust web directory
-      become: no
-      command: git config --global --add safe.directory /var/www/html
-
-    - name: Clone or update repository
-      git:
-        repo: https://github.com/CeeyIT-Solutions/food3.git
+    - name: Host code
+      git: 
+        repo:  https://github.com/CeeyIT-Solutions/food3.git
         dest: /var/www/html
-        force: yes
-        update: yes
-
-    - name: Set proper permissions
-      file:
-        path: /var/www/html
-        owner: apache
-        group: apache
-        recurse: yes
-        mode: '0755'
 
 ...
+      
