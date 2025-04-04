@@ -1,0 +1,49 @@
+<!-- This HTML document displays a maintenance message with a rotating gear icon. The message scrolls across the screen. -->
+<!-- The document uses Font Awesome for the gear icon and includes CSS for styling and animations. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .maintenance-text {
+            color: #2e2e6d;
+            font-size: 24px;
+            white-space:;
+            animation: marquee 5s linear infinite;
+            position: absolute;
+        }
+        .gear-icon {
+            animation: rotate 3s linear infinite;
+            margin-right: 10px;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="maintenance-text">
+            <i class="fas fa-cog gear-icon"></i>
+            Under Maintenance
+        </div>
+    
+</body>
+</html>
