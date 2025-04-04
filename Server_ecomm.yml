@@ -1,0 +1,19 @@
+---
+- name: Deploy HTTP servers
+  hosts: n2
+  become: yes
+
+  tasks:
+    - name: Install git
+      yum: 
+        name: git 
+        state: present
+
+    - name: Host code
+      git: 
+        repo:  https://github.com/Mors91/Ansible.git
+        dest: /var/www/html
+
+...
+      
+
