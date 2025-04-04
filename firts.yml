@@ -1,3 +1,7 @@
+# ansible-playbook n3.yml
+# adhoc command to create a directory on n3 servers
+# ansible n3 -m file -a "path=/home/ec2-user/premier_dir state=directory" 
+
 ---
 - name: Update n3 servers
   hosts: n3
